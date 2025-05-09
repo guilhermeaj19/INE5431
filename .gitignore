@@ -1,3 +1,11 @@
+
+# Keep folders to run the praticaIV.py, but not the output images
+Pratica_4/imgs_mandril/*
+!Pratica_4/imgs_mandril/.gitkeep
+
+Pratica_4/imgs_teste/*
+!Pratica_4/imgs_teste/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
