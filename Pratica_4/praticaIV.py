@@ -43,10 +43,18 @@ def conversor(version, img, img_name):
 
 if __name__ == "__main__":
     
-    # Leitura da imagem 
-    filepath = 'mandril.bmp'
+    # Cria as pastas de saída
+    try:
+        os.mkdir('imgs_teste')
+    except FileExistsError:
+        pass
 
-    img = Image.open(filepath)
+    try:
+        os.mkdir('imgs_mandril')
+    except FileExistsError:
+        pass
+
+    img = Image.open('mandril.bmp')
     img_teste = Image.open('teste.bmp')
     
     # Indique a matricula dos alunos do grupo na lista abaixo
