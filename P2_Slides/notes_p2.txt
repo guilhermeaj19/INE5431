@@ -1,0 +1,182 @@
+Cap 4 - Aula 1
+
+    Hipertextos:
+        - informação em mídias estátisticas; 
+        - organização não linear;
+            - Nós: mídia (index.html)
+            - Links: relação lógica/semântica entre nós
+            - região espacial, string de origem e destino dos links (elemento com href)
+        - interação usuário-docs
+        
+    Multimídia:
+        - múltiplos formatos de mídia;
+        - organização sequencial ou não;
+        - graus variáveis de interatividade
+    
+    Hipermídia (subconjunto de multimída):
+        - múltiplos formatos de mídia;
+        - organização não sequencial;
+        - grande interatividade;
+        - combina multimídia com hipertexto
+        - noção de tempo
+
+Cap 4 - Aula 2
+
+    Ferramentas de autoria: ambientes para criação de documentos multimídia
+        - Segue modelos multiview:
+            - Estrutura do Conteúdo: biblioteca de dados multimída e seus descritores;
+            - Estrutura Conceptual: lógica dos componentes e relações lógicas e temporais entre as apresentações dos componentes; define sincronização intermídia e composição temporal
+            - Estrutura de Apresentação: como (velocidade, tamanho, etc) e onde (posição na tela) cada componente será apresentado
+        - Estrutura Linear, Hierárquica ou em Rede
+        
+        - Modelos temporais: eventos e intervalos
+
+Cap 4 - Aula 3
+    Abordagens de Autoria:
+        Linguagens Scripting: programação; poder de expressão grande, mas díficil de produzir e modificar.
+        
+        Gráfico: simplifica a especificação temporal; menor poder de expressão que em programação
+        
+        Timeline: 
+            - simples; visão clara de qual e quando cada informação será apresentada; 
+            - ruim para eventos assíncronos (como botões); precisa saber a duração de cada apresentação; não permite definir a estrutura conceptual completa; ruim para estruturas avançadas e relações condicionais
+        Cartões/Páginas: 
+            - simples para layout de apresentação tipo Powerpoint
+            - ruim para especificação de comportamento temporal (precisa script) e reutilização de cenários entre páginas
+
+        Ícones:  tipo grafo de interações; simples para pequenas aplicações.
+
+Cap 4 - Aula 4
+    Processo de autoria de documentos multimídia
+    
+    Modelo Cascata: ciclo clássico, sequencial, um produto/docs por etapa, verificação (correto) e validação (requerido) por etapa
+        - Atraso para mostrar ao cliente; afeta prazos de correção
+    
+    Prototipação: criação de um protótipo a partir dos requisitos iniciais, avança para o produto final se aprovado
+        - Caro; só mostra duas versões pro cliente
+    
+    Iterativo: incremental, cada etapa adiciona novas funcionalidades até atingir o produto final
+        - Acompanhamento constante em cada etapa, adequada para documentos multimídia
+    
+    Tipos de representações física de mídia: proprietárias (demanda sistema de apresentação própria) ou padronizadas (ISO MHEG, ISO HyTime, facilita portabilidade)
+
+Cap 5 - Aula 1
+    
+    TV Digital: transmissão digital de áudio, vídeo e dados/aplicações
+    
+    vs TV Analógica: imune a ruídos, novos serviços ofertados, melhor aproveitamento de canais (de 1 para até 4)
+    
+    Características: alta definição, multiprogramação por canal (advindo pela compressão dos sinais digitais), interatividade; recepção de dados; recepção móvel e portátil
+
+Cap 5 - Aula 2
+
+    TV Digital - Interatividade
+        Tipos: Local (sem canal, execução no set-top-box), Intermitente (com canal, armazena dados por um tempo na URD para depois enviar ao provedor) e Permanente (tipo a anterior, mas o envio é imediato)
+        
+        Aplicações: guias eletrônicos de programação (EPG), coisas do governo (bolsa família, survey, serviços, streaming nacional gratuito, game enem), bancos, notícias, previsão do tempo, entretenimento (BBB), esportes (torcida virtual)
+        
+        2021: maior integração com internet, Ginga D (middleware BR
+
+Cap 5 - Aula 3
+    Padrões TV Digital
+    
+    Middleware: para aplicações de TV Digital que independem do hardware final
+    
+    ASTC: 
+        Middleware DASE (para JVM, HTML e Javascript)
+        Codificação: Audio 5.1, Video MPEG-2, H.264/MPEG-AVC
+        Multiplexação: MPEG-2 Transport Stream
+    
+    DVB:
+        Padrões abertos para TVD
+        Middleware MHP (para JVM e HTML)
+        Codificação e multiplexação igual ASTC
+    
+    ISDB:
+        Middleware ARIB (para BML e XML)
+        Codificação e multiplexação igual ASTC
+        
+    Brasil:
+        - ISDB-Tb (SBTVD), baseado no sistema japonês
+        - Transmissão alta definição, com mobilidade, portabilidade e interatividade
+        - Middleware GINGA (NCL e Java imperativo)
+        - Codificação: Áudio 5.1 48kHz(padrão MPEG-4 AAC), Vídeo MPEG-4 AVC com taxas de 30 e 60 Hz para receptor fixo e móvel e 15 e 30 Hz para portáteis
+        - MPEG-2 Transport System: informações de áudio e vídeo multiplexados com dados, como Close Caption, em um fluxo único. Tabelas PSI para informações do programa, horários e emissora
+        - Modulação: BST-OFDM, um canal de TV vira 13 segmentos de 428,58 KHz (portátil usa 1, os 12 demais para FullHD ou agrupados para HD/SD)
+        
+Cap 5 - Aula 4
+    Ginga
+        Combinação Imperativo/Procedural (Ginga-J) com Declarativo (Ginga-NCL)
+        
+        Ginga-NCL: sincronização de mídia, NCL define conteúdo e reações a diferentes eventos, usa scripts Lua)
+        
+        Ginga-J: controla execução de aplicações Java TV e Java DTV, complemento ao Ginga-NCL para aplicações complexa inviáveis em NCL
+        
+        Java TV: API para TV Interativa em set-top-box,baseada em JMF, AWT e Xlets
+        
+        Ginga-CC: Common-Core, suporte básico para Ginga-NCL e Ginga-J, controle do plano gráfico, acesso ao Canal de Interatividade (módulo para camada de rede)
+        
+        Ginga Perfil D: DTV Play, TV 2.5, para integração com a internet com Ginga HTML5 (CSS e Javascript) e Ginga CC WebServices (HTTP e RESTfull)
+
+Cap 5 - Aula 5 e 6
+    NCL: XML com script Lua
+        - Regiões (da tela)
+        - Nós (elementos de mídia)
+        - Descritores (como a mídia é apresentada)
+        - Sincronização (quando, elos e conectores)
+        - Contexto (organização de unidades com várias mídias)
+
+Cap 5 - Aula 7
+    Desafios Interatividade
+        - TV e Internet são mídias muito diferentes
+        - Quem programa para TV não sabe programa para PC e vice versa
+        
+        - TVs: baixo nível de interatividade e são fáceis de operar, orientadas a entretenimento e notícias, experiência coletiva, modelo push
+        - PCs: alta interatividade, interface gráfica, volta à programação, orientado a texto, atividades e comunicação, experiencia individual, modelo pull/push-pull
+        
+        - Dificuldade de adoção da TV interativa pela falta de políticas para viabilizar e pelo custo sem retorno garantido
+
+Cap 5 - Aula 8
+    Evolução TV Digital no Brasil
+        TV 3.0: 
+            - Módulo para conexão da TV à internet
+            - ROUTE/DASH (substitui o MPEG, usa pacotes IP, streaming HTTP)
+            - H.266 VVC (40% melhor que H.265, mas mantém suporte a ele)
+            - DRE e LCEVC (MPEG-5): codifição com economia de taxa de bits e processamento mantendo a qualidade (a antiga pode reduzir a resolução)
+            - HDR: maior gamas de cores e nível de contraste, HDR10 como base
+            - MPEG-H para distribuição over-the-air e internet
+
+Cap 6 - Aula 1
+    Tipos de transmissão: assíncrona (download) e síncrona (streaming)
+    
+    Característica Fluxo de Dados:
+        Variação de vazão com o tempo: Taxa de bits contante (CBR) ou variável (VBR)
+        
+        Simetria Bidirecional: simétrico (taxas aproximadas nas duas direções) ou assimétrico
+        
+        Dependência temporal: pessoa-a-pessoa (atraso pequeno) ou pessoa-sistema (atraso na ordem de segundos)
+        
+        Sincronização: intramídia (vídeo e áudio, intervalos regulares), intermídia (relacionamento temporais entre componentes mantidos)
+        
+        Tolerância a perdas: tolerável dependendo do método de compressão
+ 
+Cap 6 - Aula 2
+    Comutação:
+        Pacotes: sem reserva de recurso, sob demanda, mais top
+        Circuito: com reserva, transmissão em rajadas
+    
+    Vazão: depende da qualidade/codec escolhido para áudios e vídeos e técnica de compressão
+    
+    Variação de atraso (jitter) removido com buffer FIFO no destino.
+        Bufferização fixa (não considera atraso real do pacote) ou adaptativa (estimação contínuo do atraso)
+    
+    Confiabilidade: díficil quantificação
+
+Cap 6 - Aula 3
+    Ehternet:
+        - Com meio compartilhado CSMA/CD: usa hubs, repassa pra todas portas; 70% a 80% da largura de banda para colisões em nível aceitável; comportamento não determinista
+        - Comutada: usa switches, apenas o destino; melhora vazão e reduz atrasos
+    
+    Padrão IEEE 802.1p: gerenciamento de tráfego; 8 classes de prioridade; múltiplas filas de prioridade por porta; não gerencia latência
+    
+    ADSL e VDSL: tecnologia de acesso que usa linha telefônica; baseada em modems; assimétrica (download maior que upload), boa para Web e vídeo sob-demanda
